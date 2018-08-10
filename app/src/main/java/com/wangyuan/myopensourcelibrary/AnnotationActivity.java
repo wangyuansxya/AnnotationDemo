@@ -4,10 +4,14 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.annotation.compile.define.Friut;
 import com.annotation.compile.define.FriutName;
 import com.annotation.compile.define.FriutProvider;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class AnnotationActivity extends Activity {
 
@@ -21,15 +25,18 @@ public class AnnotationActivity extends Activity {
     @FriutProvider(id = 2, name = "陕西洛川苹果", address = "陕西洛川")
     public String provider;
 
+    @BindView(R.id.iv_bitmap)
+    ImageView mIvBitmap;
+    @BindView(R.id.button1)
     Button mBtn;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        mBtn = findViewById(R.id.button1);
+        ButterKnife.bind(this);
+//        mBtn = findViewById(R.id.button1);
         mBtn.setText(name);
     }
 }

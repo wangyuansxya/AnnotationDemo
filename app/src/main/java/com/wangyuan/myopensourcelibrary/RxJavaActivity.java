@@ -16,6 +16,8 @@ import org.reactivestreams.Subscription;
 
 import java.lang.annotation.Annotation;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
@@ -31,7 +33,9 @@ import io.reactivex.schedulers.Schedulers;
 
 public class RxJavaActivity extends AppCompatActivity implements View.OnClickListener {
 
+    @BindView(R.id.iv_bitmap)
     ImageView mIvBitmap;
+    @BindView(R.id.button1)
     Button mBtn;
 
     @SuppressLint("CheckResult")
@@ -39,8 +43,9 @@ public class RxJavaActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mBtn = findViewById(R.id.button1);
-        mIvBitmap = findViewById(R.id.iv_bitmap);
+        ButterKnife.bind(this);
+        //mBtn = findViewById(R.id.button1);
+        //mIvBitmap = findViewById(R.id.iv_bitmap);
 
         //RxJava2 俩种观察者 Observable和Flowable， 其中Flowable支持背压。背压是一种处理速度控制策略
         Flowable.just(R.mipmap.ic_launcher_round).map(new Function<Integer, Bitmap>() {
