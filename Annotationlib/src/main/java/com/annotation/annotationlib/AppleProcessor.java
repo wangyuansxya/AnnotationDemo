@@ -6,10 +6,12 @@ import com.annotation.compile.define.FriutProvider;
 import com.squareup.javapoet.CodeBlock;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
+import com.squareup.javapoet.ParameterSpec;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -23,9 +25,12 @@ import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.Modifier;
+import javax.lang.model.element.Name;
 import javax.lang.model.element.PackageElement;
 import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
+
+import sun.reflect.generics.scope.ConstructorScope;
 
 public class AppleProcessor extends AbstractProcessor {
 
@@ -76,6 +81,7 @@ public class AppleProcessor extends AbstractProcessor {
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
 
         String genaratePackageName = "";
+        Name originClassName;
         String genarateClassName = "";
 
         //List<MethodSpec> list = new ArrayList<>();
@@ -117,6 +123,7 @@ public class AppleProcessor extends AbstractProcessor {
 
                 // 生成的包名
                 genaratePackageName = enclosingQualifiedName.substring(0, enclosingQualifiedName.lastIndexOf('.'));
+                originClassName = enclosingElement.getSimpleName();
                 // 生成的类名
                 genarateClassName = enclosingElement.getSimpleName() + EXT;
                 // 创建Java文件
@@ -144,13 +151,17 @@ public class AppleProcessor extends AbstractProcessor {
             }
         }
 
+        /*methods.add(MethodSpec.constructorBuilder()
+                .addParameter(ParameterSpec.builder(originClassName.getClass(), "target").build())
+                .addModifiers(Modifier.PUBLIC)
+                .build());*/
+
         if(genarateClassName != null && genarateClassName.length() > 0) {
             write(genaratePackageName, genarateClassName, methods);
         }
 
         return false;
     }
-
 
     private MethodSpec buildMethod(String methodName, CodeBlock code) {
         MethodSpec method = MethodSpec.methodBuilder(methodName)
@@ -174,7 +185,7 @@ public class AppleProcessor extends AbstractProcessor {
                 .addStatement("$T.out.println($S)", System.class, "Hello, JavaPoet!")
                 .addStatement(builder.build())
                 .build();*/
-        TypeSpec className = TypeSpec.classBuilder("A" + genarateClassName)
+        TypeSpec className = TypeSpec.classBuilder(genarateClassName)
                 .addModifiers(Modifier.PUBLIC, Modifier.FINAL)
                 .addMethods(methods)
                 .build();

@@ -4,11 +4,6 @@ apply plugin: 'com.android.application'
 
 //apply plugin: 'kotlin-android-extensions'
 
-//apply plugin: 'kotlin-kapt'
-
-//apply plugin: 'com.android.library'
-//apply plugin: 'com.jakewharton.butterknife'
-
 android {
     compileSdkVersion 26
     defaultConfig {

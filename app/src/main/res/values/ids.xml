@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="tv_tag_id" type="id"></item>
+
+    <item name="tag_first" type="id"></item>
+    <item name="tag_secend" type="id"></item>
+    <item name="tag_third" type="id"></item>
+    <item name="tag_fourth" type="id"></item>
+    <item name="tag_fifth" type="id"></item>
+    <item name="tag_sixth" type="id"></item>
+    <item name="tag_seventh" type="id"></item>
+
+</resources>

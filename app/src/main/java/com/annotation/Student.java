@@ -1,7 +1,6 @@
-package com.wangyuan.myopensourcelibrary;
+package com.annotation;
 
 
-import com.annotation.compile.define.FriutName;
 import com.annotation.run.define.User;
 
 /**

@@ -1,4 +1,4 @@
-package com.wangyuan.myopensourcelibrary;
+package com.annotation;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,8 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
+import com.R;
 
 import java.lang.annotation.Annotation;
 
@@ -20,9 +19,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
@@ -103,7 +99,7 @@ public class RxJavaActivity extends AppCompatActivity implements View.OnClickLis
 
 
         try {
-            Annotation[] a = Class.forName("com.wangyuan.myopensourcelibrary.Student").getAnnotations();
+            Annotation[] a = Class.forName("com.annotation.Student").getAnnotations();
             Observable.fromArray(a)/*.flatMap(new Function<Annotation, ObservableSource<String>>() {
                 @Override
                 public ObservableSource<String> apply(Annotation annotation) throws Exception {

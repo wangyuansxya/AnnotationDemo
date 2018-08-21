@@ -1,4 +1,4 @@
-package com.wangyuan.myopensourcelibrary;
+package com.annotation;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.R;
 import com.annotation.compile.define.Friut;
 import com.annotation.compile.define.FriutName;
 import com.annotation.compile.define.FriutProvider;
@@ -33,10 +34,9 @@ public class AnnotationActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_annoation);
         ButterKnife.bind(this);
-//        mBtn = findViewById(R.id.button1);
+
         mBtn.setText(name);
     }
 }

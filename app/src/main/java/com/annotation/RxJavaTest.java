@@ -1,4 +1,4 @@
-package com.wangyuan.myopensourcelibrary;
+package com.annotation;
 
 import android.graphics.Bitmap;
 
