@@ -30,6 +30,9 @@ import javax.lang.model.element.PackageElement;
 import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
 
+/**
+ * https://github.com/square/javapoet
+ */
 public class AppleProcessor extends AbstractProcessor {
 
     Messager messager;
