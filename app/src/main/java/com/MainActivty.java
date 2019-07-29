@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.jni.JniActivity;
 import com.mvp.ui.UserActivity;
 import com.annotation.AnnotationActivity;
 
@@ -24,7 +25,18 @@ public class MainActivty extends Activity implements AdapterView.OnItemClickList
     @BindView(R.id.lv_demo_list)
     ListView mDemoList;
 
-    String[] ARR = {"MVP测试", "自定义注解测试"};
+    private static final String[] ARR = {"MVP测试", "自定义注解测试", "JNI"};
+    private static final Class<?>[] ACTIVITIES = {UserActivity.class, AnnotationActivity.class, JniActivity.class};
+
+    private static final Map<Integer, Class<?>> MAP = new HashMap<>();
+    static {
+        final int len = ACTIVITIES.length;
+        for (int i = 0; i < len; i++) {
+            MAP.put(i, ACTIVITIES[i]);
+        }
+    }
+
+    NetworkConnectHelper helper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +45,8 @@ public class MainActivty extends Activity implements AdapterView.OnItemClickList
         ButterKnife.bind(this);
         mDemoList.setAdapter(new ArrayAdapter<>(getApplicationContext(),  R.layout.item_main, R.id.button_item, ARR));
         mDemoList.setOnItemClickListener(this);
+        helper = new NetworkConnectHelper();
+        helper.registerHeadsetPlugReceiver(this, null);
     }
 
     private void startActivity(Class<?> cls) {
@@ -42,15 +56,12 @@ public class MainActivty extends Activity implements AdapterView.OnItemClickList
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        switch (i) {
-            case 0:
-                startActivity(UserActivity.class);
-                break;
-            case 1:
-                startActivity(AnnotationActivity.class);
-                break;
-            default:
-                break;
-        }
+        startActivity(ACTIVITIES[i]);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        helper.unRegisterHeadsetPlugReceiver(this, null);
     }
 }

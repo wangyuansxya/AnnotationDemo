@@ -5,17 +5,19 @@ extern "C"
 JNIEXPORT jstring
 
 JNICALL
-Java_com_wangyuan_myopensourcelibrary_MainActivity_stringFromJNI(
+Java_com_jni_MathUtils_stringFromJNI(
         JNIEnv *env,
-        jobject /* this */) {
-    std::string hello = "Hello from C++";
-    return env->NewStringUTF(hello.c_str());
+        jobject /* this */, jstring str) {
+    const char *hello = "Hello from C++";
+//    return env->NewStringUTF(hello.c_str());
+    return str;
+//    return "Hello from C++";
 }
 
+extern "C"
 JNIEXPORT jint
 JNICALL
-Java_com_wangyuan_myopensourcelibrary_MainActivity_getIntFromJni(JNIEnv *env, jobject) {
-    int x = 6;
-    return x;
+Java_com_jni_MathUtils_add(JNIEnv *env, jobject, jint x, jint y) {
+    return x + y;
 
 }

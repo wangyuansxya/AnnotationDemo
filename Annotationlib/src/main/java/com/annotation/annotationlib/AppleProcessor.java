@@ -30,8 +30,6 @@ import javax.lang.model.element.PackageElement;
 import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
 
-import sun.reflect.generics.scope.ConstructorScope;
-
 public class AppleProcessor extends AbstractProcessor {
 
     Messager messager;

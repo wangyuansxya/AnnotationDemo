@@ -7,7 +7,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.wangyuan.myopensourcelibrary"
+        applicationId "com.annotation"
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
@@ -56,13 +56,13 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
     //rxJava
-    compile "io.reactivex.rxjava2:rxjava:2.1.12"
+    implementation "io.reactivex.rxjava2:rxjava:2.1.12"
     //buttferKnife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-    compile project(':Annotation')
+    implementation project(':Annotation')
     annotationProcessor project (':Annotationlib')
 //    kapt project (':Annotationlib')
 }
