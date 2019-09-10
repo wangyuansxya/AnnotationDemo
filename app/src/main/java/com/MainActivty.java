@@ -3,18 +3,19 @@ package com;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.annotation.Nullable;
+
 import com.jni.JniActivity;
 import com.mvp.ui.UserActivity;
 import com.annotation.AnnotationActivity;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.touch.one.TouchOneActivity;
+import com.touch.one.ViewPagerActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,10 +26,10 @@ public class MainActivty extends Activity implements AdapterView.OnItemClickList
     @BindView(R.id.lv_demo_list)
     ListView mDemoList;
 
-    private static final String[] ARR = {"MVP测试", "自定义注解测试", "JNI"};
-    private static final Class<?>[] ACTIVITIES = {UserActivity.class, AnnotationActivity.class, JniActivity.class};
+    private static final String[] ARR = {"MVP测试", "自定义注解测试", "JNI", "TOUCH", "ViewPager"};
+    private static final Class<?>[] ACTIVITIES = {UserActivity.class, AnnotationActivity.class, JniActivity.class, TouchOneActivity.class, ViewPagerActivity.class};
 
-    private static final Map<Integer, Class<?>> MAP = new HashMap<>();
+    private static final SparseArray<Class<?>> MAP = new SparseArray<>();
     static {
         final int len = ACTIVITIES.length;
         for (int i = 0; i < len; i++) {

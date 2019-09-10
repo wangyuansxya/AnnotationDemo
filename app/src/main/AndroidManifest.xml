@@ -16,7 +16,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -24,6 +24,9 @@
         <activity android:name=".annotation.AnnotationActivity"/>
         <activity android:name=".mvp.ui.UserActivity"/>
         <activity android:name=".jni.JniActivity"/>
+        <activity android:name=".touch.one.TouchOneActivity"/>
+
+        <activity android:name=".touch.one.ViewPagerActivity"/>
     </application>
 
 </manifest>
