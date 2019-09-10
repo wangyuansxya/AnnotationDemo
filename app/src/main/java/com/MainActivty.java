@@ -16,6 +16,7 @@ import com.mvp.ui.UserActivity;
 import com.annotation.AnnotationActivity;
 import com.touch.one.TouchOneActivity;
 import com.touch.one.ViewPagerActivity;
+import com.touch.two.TouchTwoActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,8 +27,8 @@ public class MainActivty extends Activity implements AdapterView.OnItemClickList
     @BindView(R.id.lv_demo_list)
     ListView mDemoList;
 
-    private static final String[] ARR = {"MVP测试", "自定义注解测试", "JNI", "TOUCH", "ViewPager"};
-    private static final Class<?>[] ACTIVITIES = {UserActivity.class, AnnotationActivity.class, JniActivity.class, TouchOneActivity.class, ViewPagerActivity.class};
+    private static final String[] ARR = {"MVP测试", "自定义注解测试", "JNI", "TOUCH", "ViewPager", "TOUCH2"};
+    private static final Class<?>[] ACTIVITIES = {UserActivity.class, AnnotationActivity.class, JniActivity.class, TouchOneActivity.class, ViewPagerActivity.class, TouchTwoActivity.class};
 
     private static final SparseArray<Class<?>> MAP = new SparseArray<>();
     static {

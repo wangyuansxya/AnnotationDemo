@@ -27,6 +27,8 @@
         <activity android:name=".touch.one.TouchOneActivity"/>
 
         <activity android:name=".touch.one.ViewPagerActivity"/>
+
+        <activity android:name=".touch.two.TouchTwoActivity"/>
     </application>
 
 </manifest>
