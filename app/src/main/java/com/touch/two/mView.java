@@ -23,13 +23,17 @@ public class mView extends AppCompatTextView {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        Log.e(TouchTwoActivity.TAG, "mView.dispatchTouchEvent");
-        return super.dispatchTouchEvent(event);
+//        Log.e(TouchTwoActivity.TAG, "mView.dispatchTouchEvent");
+        Log.e(TouchTwoActivity.TAG, "mView.dispatchTouchEvent  acton = " + event.getAction());
+
+        return true;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.e(TouchTwoActivity.TAG, "mView.onTouchEvent");
+//        Log.e(TouchTwoActivity.TAG, "mView.onTouchEvent");
+        Log.e(TouchTwoActivity.TAG, "mView.onTouchEvent  acton = " + event.getAction());
+
         return super.onTouchEvent(event);
     }
 }

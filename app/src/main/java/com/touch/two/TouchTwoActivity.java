@@ -32,13 +32,15 @@ public class TouchTwoActivity extends AppCompatActivity {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.e(TAG, "TouchTwoActivity.dispatchTouchEvent");
+//        Log.e(TAG, "TouchTwoActivity.dispatchTouchEvent");
+        Log.e(TAG, "TouchTwoActivity.dispatchTouchEvent  acton = " + ev.getAction());
         return super.dispatchTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.e(TAG, "TouchTwoActivity.onTouchEvent");
+//        Log.e(TAG, "TouchTwoActivity.onTouchEvent");
+        Log.e(TAG, "TouchTwoActivity.onTouchEvent  acton = " + event.getAction());
         return super.onTouchEvent(event);
     }
 }
